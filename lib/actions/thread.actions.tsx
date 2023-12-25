@@ -28,10 +28,9 @@ export async function createThread({
     });
 
     // update user model
-    await User.findByIdAndUpdate(
-      { _id: author },
-      { $push: { threads: createdThread._id } }
-    );
+    await User.findByIdAndUpdate(author, {
+      $push: { threads: createdThread._id },
+    });
 
     revalidatePath(path);
   } catch (error: any) {
