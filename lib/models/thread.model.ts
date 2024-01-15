@@ -1,7 +1,10 @@
 import mongoose from "mongoose";
 
 const threadSchema = new mongoose.Schema({
-  text: { type: String, required: true },
+  text: {
+    type: String,
+    required: true,
+  },
   author: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
@@ -9,7 +12,7 @@ const threadSchema = new mongoose.Schema({
   },
   community: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "Communiy",
+    ref: "Community",
   },
   createdAt: {
     type: Date,
